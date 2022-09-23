@@ -1,0 +1,86 @@
+1)create table Member_c
+(
+Member_id int not null primary key,
+Acc_Open_Date date DEFAULT GETDATE(),
+Max_Allowed_Books int CHECK (Books<100),
+Penalty int check (Penalty>100)
+)
+
+2)create table Member_c
+( Book_No int primary key,
+  Book_Name varchar(20) not null,
+   )
+
+3)create table Member_c
+(
+Lib_Issue_Id int  not nullprimary key
+Member_id int foreign key references member(MemberID)
+Book_No int foreign key references book(BookNo)
+Check (Issue_date < Return_date)
+)
+
+4)ALTER TABLE Book
+ADD CONSTRAINT check_book CHECK (Price < 2500);
+
+5)create view User_Constraints
+as
+select *  from table Issue_C
+---------------------------------------------
+select * from User_Constraints
+
+6)ALTER table Issue_C
+NOCHECK CONSTRAINT Check (Issue_date < Return_date)
+
+7)create view v_booksorteddata
+
+as 
+select Lib_Issue_Id, Book_Name, Member_Name, Author and Issue_date from Issue_C
+
+8)CREATE
+    VIEW b_books AS SELECT
+        book_no,
+        bookname,
+        author
+    FROM
+        books
+    WHERE
+        cost >500 WITH CHECK OPTION;
+
+9)insert into v_prodviews
+values (3,'Biscuit')
+---------------------------------------------
+update v_prodviews
+set prodname='CreamBiscuit'
+where prodid=3
+
+UPDATE myview SET mycolumn = 5;
+
+CREATE VIEW myview
+    AS SELECT *
+    FROM mytable
+    WHERE mycolumn = 10
+    WITH CHECK OPTION;
+
+10)create table book
+(
+book_name varchar(10)
+)
+
+create nonclustered index pk_book
+on book(book_name)
+
+11)create table Issue
+(
+Member_Id int,
+Book_No int
+)
+
+create clustered index pk_Issue
+on Issue(Member_Id)
+
+create nonclustered index pk_Issue1
+on Issue(Book_No)
+
+12)Index- It is a schema object which is used to provide improved performance in the retrieval of rows from a table.
+   Unique Index-Unique indexes guarantee that no two rows of a table have duplicate values in the key column (or columns).
+
